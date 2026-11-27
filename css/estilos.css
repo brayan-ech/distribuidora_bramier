@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
 
-/* General */
 :root {
     --color-primario: #1e3a8a;
     --color-secundario: #f59e0b;
@@ -45,7 +45,6 @@ body {
     margin: 0 auto;
 }
 
-/* Cabecera y menu */
 .cabecera {
     background-color: var(--blanco);
     border-bottom: 1px solid var(--borde);
@@ -69,59 +68,35 @@ body {
     text-decoration: none;
 }
 
-.logo span {
-    background-color: var(--color-secundario);
-    color: var(--texto-oscuro);
-    font-size: 0.75rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 6px;
-    vertical-align: middle;
-    margin-left: 0.3rem;
-}
-
 .menu {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.4rem;
 }
 
-.menu a,
-.desplegable summary {
+.menu a {
     text-decoration: none;
     color: var(--texto-oscuro);
     font-weight: 600;
-    cursor: pointer;
-    list-style: none;
 }
 
-.desplegable {
-    position: relative;
-}
-
-.submenu {
-    position: absolute;
-    top: 150%;
-    left: 0;
-    background: var(--blanco);
+.btn-hamburguesa {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
     border: 1px solid var(--borde);
-    border-radius: 10px;
-    list-style: none;
-    min-width: 180px;
-    box-shadow: var(--sombra);
-    padding: 0.5rem 0;
-    z-index: 30;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-.submenu li a {
+.btn-hamburguesa span {
     display: block;
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-}
-
-.submenu li a:hover {
-    background-color: var(--fondo-suave);
-    color: var(--color-primario);
+    width: 22px;
+    height: 2px;
+    background: var(--texto-oscuro);
 }
 
 .boton-carrito {
@@ -134,7 +109,6 @@ body {
     cursor: pointer;
 }
 
-/* presentacion y buscador */
 .presentacion {
     background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
     color: var(--blanco);
@@ -185,19 +159,12 @@ body {
     color: var(--texto-oscuro);
 }
 
-.barra-busqueda input:focus,
-.barra-busqueda select:focus {
-    border-color: var(--color-primario);
-}
-
-/* catalogo */
 .seccion {
     padding: 3.5rem 0;
 }
 
 .fondo-suave {
     background-color: var(--fondo-suave);
-    text-align: center;
 }
 
 .encabezado-seccion {
@@ -220,7 +187,7 @@ body {
 
 .fila-galeria {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.8rem;
 }
 
@@ -232,12 +199,6 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.tarjeta:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--sombra);
 }
 
 .insignia {
@@ -261,7 +222,7 @@ body {
 
 .tarjeta img {
     width: 100%;
-    height: 200px;
+    height: 190px;
     object-fit: cover;
     background-color: #f1f5f9;
 }
@@ -284,26 +245,17 @@ body {
     margin-bottom: 1rem;
 }
 
-/* Precios Mayor y Menor */
 .precios {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-    margin-bottom: 1rem;
     margin-top: auto;
+    margin-bottom: 1rem;
 }
 
 .caja-precio {
-    background: #f8fafc;
-    border: 1px solid var(--borde);
+    background: #fefce8;
+    border: 1px solid #fde047;
     padding: 0.6rem;
     border-radius: 8px;
     text-align: center;
-}
-
-.caja-precio.mayor {
-    background: #fefce8;
-    border-color: #fde047;
 }
 
 .caja-precio span {
@@ -317,33 +269,14 @@ body {
     color: var(--texto-oscuro);
 }
 
-/* Botones de compra */
-.acciones-tarjeta {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-}
-
 .acciones-tarjeta button {
+    width: 100%;
     padding: 0.65rem;
     border: none;
     border-radius: 8px;
     font-weight: 600;
     font-size: 0.85rem;
     cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.acciones-tarjeta button:hover {
-    opacity: 0.9;
-}
-
-.btn-menor {
-    background-color: #e2e8f0;
-    color: var(--texto-oscuro);
-}
-
-.btn-mayor {
     background-color: var(--color-primario);
     color: var(--blanco);
 }
@@ -357,7 +290,6 @@ body {
     color: var(--texto-gris);
 }
 
-/* panel carrito */
 .panel-carrito {
     position: fixed;
     top: 0;
@@ -455,7 +387,6 @@ body {
     cursor: pointer;
 }
 
-/* pie de pagina y responsive */
 .pie {
     background: #0f172a;
     color: #cbd5e1;
@@ -482,7 +413,8 @@ body {
 
 .redes {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
     margin-top: 0.4rem;
 }
 
@@ -493,10 +425,46 @@ body {
     font-size: 0.85rem;
 }
 
+@media (max-width: 900px) {
+    .fila-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
+    .btn-hamburguesa {
+        display: flex;
+    }
+
+    .navegacion {
+        display: none;
+        width: 100%;
+        order: 3;
+    }
+
+    .navegacion.menu-abierto {
+        display: block;
+    }
+
+    .barra {
+        flex-wrap: wrap;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        padding: 0.8rem 0;
+    }
+
+    .fila-galeria {
+        grid-template-columns: 1fr;
+    }
+
     .barra-busqueda {
         grid-template-columns: 1fr;
     }
+
     .presentacion h1 {
         font-size: 1.65rem;
     }

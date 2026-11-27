@@ -3,60 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distribuidora Bramier | Gaseosas y Cervezas por Mayor y Menor</title>
+    <title>Bramier | Gaseosas y Cervezas por Mayor</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/secciones.css">
 </head>
 <body>
     <a class="saltar" href="#contenido">Ir al contenido</a>
 
-    <!-------- Cabecera-------->
     <header class="cabecera" id="inicio">
         <div class="contenedor barra">
             <a class="logo" href="#inicio">Bramier</a>
 
-            <nav aria-label="Menú principal">
+            <button class="btn-hamburguesa" id="btn-menu" type="button" aria-label="Abrir menú" aria-expanded="false" onclick="alternarMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navegacion" id="navegacion" aria-label="Menú principal">
                 <ul class="menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li>
-                        <details class="desplegable">
-                            <summary>Catálogo ▼</summary>
-                            <ul class="submenu">
-                                <li><a href="#catalogo" onclick="filtrarPorMenu('todos')">Ver Todo</a></li>
-                                <li><a href="#catalogo" onclick="filtrarPorMenu('gaseosas')">Gaseosas</a></li>
-                                <li><a href="#catalogo" onclick="filtrarPorMenu('cervezas')">Cervezas</a></li>
-                                <li><a href="#mayorista">Precios por Mayor</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#proposito" onclick="cerrarMenuMovil()">Propósito</a></li>
+                    <li><a href="#catalogo" onclick="cerrarMenuMovil()">Catálogo</a></li>
+                    <li><a href="#multimedia" onclick="cerrarMenuMovil()">Almacén y Video</a></li>
+                    <li><a href="#registro-mayorista" onclick="cerrarMenuMovil()">Ser Mayorista</a></li>
+                    <li><a href="mayoristas.html" target="_self">Mayoristas</a></li>
                 </ul>
             </nav>
 
-            <!-------carrito --------->
-            <button class="boton-carrito" onclick="alternarCarrito()" aria-label="Ver pedido">
+            <button class="boton-carrito" type="button" onclick="alternarCarrito()" aria-label="Ver pedido">
                 Pedido (<span id="contador-carrito">0</span>)
             </button>
         </div>
     </header>
 
-
-    <!------- Cuerpo------->
     <main id="contenido">
         <section class="presentacion">
             <div class="contenedor">
-                <p class="etiqueta">VENTA POR MAYOR Y MENOR</p>
-                <h1>Abastece tu bodega o evento al mejor precio</h1>
-                <p>Gaseosas y cervezas con entrega rápida</p>
+                <p class="etiqueta">DISTRIBUCIÓN MAYORISTA DE BEBIDAS</p>
+                <h1>Abastece tu bodega, licorería o evento al mejor precio</h1>
+                <p>Cajas y packs de gaseosas y cervezas con despacho rápido y atención directa</p>
 
-                <!-------- Barra------->
                 <div class="barra-busqueda">
-                    <input 
-                        type="search" 
-                        id="buscador" 
-                        placeholder="Buscar producto (Inca Kola, Pilsen, Cristal...)" 
+                    <input
+                        type="search"
+                        id="buscador"
+                        placeholder="Buscar producto (Inca Kola, Pilsen, Cristal...)"
                         oninput="filtrarProductos()"
                     >
-                    
                     <select id="filtro-categoria" onchange="filtrarProductos()" aria-label="Filtrar por categoría">
                         <option value="todos">Todas las categorías</option>
                         <option value="gaseosas">Solo Gaseosas</option>
@@ -66,27 +59,31 @@
             </div>
         </section>
 
-        <!------- Catalogo------->
+        <section class="seccion bloque-proposito" id="proposito">
+            <div class="contenedor">
+                <p class="etiqueta">PROPÓSITO Y PROBLEMA QUE RESOLVEMOS</p>
+                <h2>Menos quiebres de stock y mejores márgenes para tu negocio</h2>
+                <p>Muchas bodegas y organizadores de eventos pierden ventas por demoras de reparto o precios altos al comprar por unidad. Bramier reúne gaseosas y cervezas en formatos por mayor con pedidos rápidos y precios claros.</p>
+            </div>
+        </section>
+
         <section class="seccion" id="catalogo">
             <div class="contenedor">
                 <div class="encabezado-seccion">
                     <div>
                         <p class="etiqueta">NUESTRO CATÁLOGO</p>
-                        <h2>Productos Disponibles</h2>
+                        <h2>Productos Disponibles por Mayor</h2>
                     </div>
-                    <p id="texto-resultados" class="contador-resultados">Mostrando 16 productos</p>
+                    <p id="texto-resultados" class="contador-resultados">Mostrando 6 productos</p>
                 </div>
 
-                <!------- Grid de tarjetas-productos ------->
                 <div class="fila-galeria" id="contenedor-productos">
-                    
-                    <!-- Producto 1 -->
-                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="inca kola 1.5 litros gaseosa" data-mayor="62.00">
+                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="inca kola 1.5 litros gaseosa">
                         <span class="insignia gaseosa">Gaseosa</span>
                         <img src="imagenes/inca-kola.svg" alt="Inca Kola 1.5 Litros">
                         <div class="texto-tarjeta">
                             <h3>Inca Kola 1.5L</h3>
-                            <p class="detalle">Caja x8 unidades. Botellas de vidrio. </p>
+                            <p class="detalle">Pack x8 unidades. Ideal para bodegas y tiendas.</p>
                             <div class="precios">
                                 <div class="caja-precio mayor">
                                     <span>Por Mayor (Pack x8)</span>
@@ -94,73 +91,66 @@
                                 </div>
                             </div>
                             <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Inca Kola 1.5L (Pack x8)', 40.00)">+ Pack Mayor</button>
+                                <button class="btn-mayor" type="button" onclick="agregarAlCarrito('Inca Kola 1.5L (Pack x8)', 40.00)">+ Pack Mayor</button>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Producto 2 -->
-                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="coca cola 1.5 litros gaseosa" data-mayor="40.00">
+                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="coca cola 1.5 litros gaseosa">
                         <span class="insignia gaseosa">Gaseosa</span>
                         <img src="imagenes/coca-cola.svg" alt="Coca-Cola 1.5 Litros">
                         <div class="texto-tarjeta">
                             <h3>Coca-Cola 1.5L</h3>
                             <p class="detalle">Sabor original. Paquete sellado x6 unidades.</p>
                             <div class="precios">
-                                
                                 <div class="caja-precio mayor">
                                     <span>Por Mayor (Pack x6)</span>
                                     <strong>S/ 35.00</strong>
                                 </div>
                             </div>
                             <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Coca-Cola 1.5L (Pack x6)', 35.00)">+ Pack Mayor</button>
+                                <button class="btn-mayor" type="button" onclick="agregarAlCarrito('Coca-Cola 1.5L (Pack x6)', 35.00)">+ Pack Mayor</button>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Producto 3 -->
-                    <article class="tarjeta" data-categoria="cervezas" data-nombre="pilsen callao 630ml cerveza caja" data-menor="7.00" data-mayor="74.00">
+                    <article class="tarjeta" data-categoria="cervezas" data-nombre="pilsen callao 630ml cerveza caja">
                         <span class="insignia cerveza">Cerveza</span>
                         <img src="imagenes/pilsen.svg" alt="Pilsen Callao 630ml">
                         <div class="texto-tarjeta">
                             <h3>Pilsen Callao 630ml</h3>
                             <p class="detalle">Botella de vidrio. Caja completa x12 botellas.</p>
                             <div class="precios">
-                                
                                 <div class="caja-precio mayor">
                                     <span>Por Mayor (Caja x12)</span>
                                     <strong>S/ 74.00</strong>
                                 </div>
                             </div>
                             <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Pilsen 630ml (Caja x12)', 74.00)">+ Caja Mayor</button>
+                                <button class="btn-mayor" type="button" onclick="agregarAlCarrito('Pilsen 630ml (Caja x12)', 74.00)">+ Caja Mayor</button>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Producto 4 -->
-                    <article class="tarjeta" data-categoria="cervezas" data-nombre="cerveza cristal lata 355ml six pack" data-menor="4.50" data-mayor="24.50">
+                    <article class="tarjeta" data-categoria="cervezas" data-nombre="cerveza cristal lata 355ml six pack">
                         <span class="insignia cerveza">Cerveza</span>
                         <img src="imagenes/cristal.svg" alt="Cerveza Cristal Lata">
                         <div class="texto-tarjeta">
                             <h3>Cristal Lata 355ml</h3>
-                            <p class="detalle">Lata fría lista para llevar. Six Pack x6 latas.</p>
+                            <p class="detalle">Formato práctico en lata. Pack x6 unidades.</p>
                             <div class="precios">
-                                
                                 <div class="caja-precio mayor">
-                                    <span>Por Mayor (Six Pack)</span>
+                                    <span>Por Mayor (Pack x6)</span>
                                     <strong>S/ 24.50</strong>
                                 </div>
                             </div>
                             <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Cristal Lata (Six Pack)', 24.50)">+ Pack Mayor</button>
+                                <button class="btn-mayor" type="button" onclick="agregarAlCarrito('Cristal Lata (Pack x6)', 24.50)">+ Pack Mayor</button>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Producto 5 -->
-                    <article class="tarjeta" data-categoria="cervezas" data-nombre="cusquena trigo negra 330ml cerveza" data-menor="5.50" data-mayor="29.00">
+                    <article class="tarjeta" data-categoria="cervezas" data-nombre="cusquena trigo negra 330ml cerveza">
                         <span class="insignia cerveza">Cerveza</span>
                         <img src="imagenes/cusquena.svg" alt="Cusqueña 330ml">
                         <div class="texto-tarjeta">
@@ -173,229 +163,28 @@
                                 </div>
                             </div>
                             <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Cusqueña 330ml (Pack x6)', 29.00)">+ Pack Mayor</button>
+                                <button class="btn-mayor" type="button" onclick="agregarAlCarrito('Cusqueña 330ml (Pack x6)', 29.00)">+ Pack Mayor</button>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Producto 6 -->
-                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="sprite 1.5 litros gaseosa limon" data-menor="6.00" data-mayor="32.00">
+                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="sprite 1.5 litros gaseosa limon">
                         <span class="insignia gaseosa">Gaseosa</span>
                         <img src="imagenes/sprite.svg" alt="Sprite 1.5 Litros">
                         <div class="texto-tarjeta">
                             <h3>Sprite 1.5L</h3>
-                            <p class="detalle">Sabor lima-limón refrescante. Paquete x6 unidades.</p>
+                            <p class="detalle">Sabor lima-limón. Paquete x6 unidades.</p>
                             <div class="precios">
-                                
                                 <div class="caja-precio mayor">
                                     <span>Por Mayor (Pack x6)</span>
                                     <strong>S/ 32.00</strong>
                                 </div>
                             </div>
                             <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Sprite 1.5L (Pack x6)', 32.00)">+ Pack Mayor</button>
+                                <button class="btn-mayor" type="button" onclick="agregarAlCarrito('Sprite 1.5L (Pack x6)', 32.00)">+ Pack Mayor</button>
                             </div>
                         </div>
                     </article>
-
-                    <!-- Producto 7 -->
-                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="sprite 1.5 litros gaseosa limon" data-menor="6.00" data-mayor="32.00">
-                        <span class="insignia gaseosa">Gaseosa</span>
-                        <img src="imagenes/sprite.svg" alt="Sprite 1.5 Litros">
-                        <div class="texto-tarjeta">
-                            <h3>Sprite 1.5L</h3>
-                            <p class="detalle">Sabor lima-limón refrescante. Paquete x6 unidades.</p>
-                            <div class="precios">
-                                
-                                <div class="caja-precio mayor">
-                                    <span>Por Mayor (Pack x6)</span>
-                                    <strong>S/ 32.00</strong>
-                                </div>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Sprite 1.5L (Pack x6)', 32.00)">+ Pack Mayor</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 8 -->
-                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="sprite 1.5 litros gaseosa limon" data-menor="6.00" data-mayor="32.00">
-                        <span class="insignia gaseosa">Gaseosa</span>
-                        <img src="imagenes/sprite.svg" alt="Sprite 1.5 Litros">
-                        <div class="texto-tarjeta">
-                            <h3>Sprite 1.5L</h3>
-                            <p class="detalle">Sabor lima-limón refrescante. Paquete x6 unidades.</p>
-                            <div class="precios">
-                                
-                                <div class="caja-precio mayor">
-                                    <span>Por Mayor (Pack x6)</span>
-                                    <strong>S/ 32.00</strong>
-                                </div>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Sprite 1.5L (Pack x6)', 32.00)">+ Pack Mayor</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 9 -->
-                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="inca kola 1.5 litros gaseosa" data-mayor="62.00">
-                        <span class="insignia gaseosa">Gaseosa</span>
-                        <img src="imagenes/inca-kola.svg" alt="Inca Kola 1.5 Litros">
-                        <div class="texto-tarjeta">
-                            <h3>Inca Kola 1.5L</h3>
-                            <p class="detalle">Caja x8 unidades. Botellas de vidrio. </p>
-                            <div class="precios">
-                                <div class="caja-precio mayor">
-                                    <span>Por Mayor (Pack x8)</span>
-                                    <strong>S/ 40.00</strong>
-                                </div>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Inca Kola 1.5L (Pack x8)', 40.00)">+ Pack Mayor</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 10 -->
-                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="coca cola 1.5 litros gaseosa" data-mayor="40.00">
-                        <span class="insignia gaseosa">Gaseosa</span>
-                        <img src="imagenes/coca-cola.svg" alt="Coca-Cola 1.5 Litros">
-                        <div class="texto-tarjeta">
-                            <h3>Coca-Cola 1.5L</h3>
-                            <p class="detalle">Sabor original. Paquete sellado x6 unidades.</p>
-                            <div class="precios">
-                                
-                                <div class="caja-precio mayor">
-                                    <span>Por Mayor (Pack x6)</span>
-                                    <strong>S/ 35.00</strong>
-                                </div>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Coca-Cola 1.5L (Pack x6)', 35.00)">+ Pack Mayor</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 11 -->
-                    <article class="tarjeta" data-categoria="cervezas" data-nombre="pilsen callao 630ml cerveza caja" data-menor="7.00" data-mayor="74.00">
-                        <span class="insignia cerveza">Cerveza</span>
-                        <img src="imagenes/pilsen.svg" alt="Pilsen Callao 630ml">
-                        <div class="texto-tarjeta">
-                            <h3>Pilsen Callao 630ml</h3>
-                            <p class="detalle">Botella de vidrio. Caja completa x12 botellas.</p>
-                            <div class="precios">
-                                
-                                <div class="caja-precio mayor">
-                                    <span>Por Mayor (Caja x12)</span>
-                                    <strong>S/ 74.00</strong>
-                                </div>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Pilsen 630ml (Caja x12)', 74.00)">+ Caja Mayor</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 12 -->
-                    <article class="tarjeta" data-categoria="cervezas" data-nombre="cerveza cristal lata 355ml six pack" data-menor="4.50" data-mayor="24.50">
-                        <span class="insignia cerveza">Cerveza</span>
-                        <img src="imagenes/cristal.svg" alt="Cerveza Cristal Lata">
-                        <div class="texto-tarjeta">
-                            <h3>Cristal Lata 355ml</h3>
-                            <p class="detalle">Lata fría lista para llevar. Six Pack x6 latas.</p>
-                            <div class="precios">
-                                
-                                <div class="caja-precio mayor">
-                                    <span>Por Mayor (Six Pack)</span>
-                                    <strong>S/ 24.50</strong>
-                                </div>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Cristal Lata (Six Pack)', 24.50)">+ Pack Mayor</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 13 -->
-                    <article class="tarjeta" data-categoria="cervezas" data-nombre="cusquena trigo negra 330ml cerveza" data-menor="5.50" data-mayor="29.00">
-                        <span class="insignia cerveza">Cerveza</span>
-                        <img src="imagenes/cusquena.svg" alt="Cusqueña 330ml">
-                        <div class="texto-tarjeta">
-                            <h3>Cusqueña Trigo / Negra</h3>
-                            <p class="detalle">Botella personal 330ml. Pack x6 unidades.</p>
-                            <div class="precios">
-                                <div class="caja-precio mayor">
-                                    <span>Por Mayor (Pack x6)</span>
-                                    <strong>S/ 29.00</strong>
-                                </div>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Cusqueña 330ml (Pack x6)', 29.00)">+ Pack Mayor</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 14 -->
-                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="sprite 1.5 litros gaseosa limon" data-menor="6.00" data-mayor="32.00">
-                        <span class="insignia gaseosa">Gaseosa</span>
-                        <img src="imagenes/sprite.svg" alt="Sprite 1.5 Litros">
-                        <div class="texto-tarjeta">
-                            <h3>Sprite 1.5L</h3>
-                            <p class="detalle">Sabor lima-limón refrescante. Paquete x6 unidades.</p>
-                            <div class="precios">
-                                
-                                <div class="caja-precio mayor">
-                                    <span>Por Mayor (Pack x6)</span>
-                                    <strong>S/ 32.00</strong>
-                                </div>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Sprite 1.5L (Pack x6)', 32.00)">+ Pack Mayor</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 15 -->
-                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="sprite 1.5 litros gaseosa limon" data-menor="6.00" data-mayor="32.00">
-                        <span class="insignia gaseosa">Gaseosa</span>
-                        <img src="imagenes/sprite.svg" alt="Sprite 1.5 Litros">
-                        <div class="texto-tarjeta">
-                            <h3>Sprite 1.5L</h3>
-                            <p class="detalle">Sabor lima-limón refrescante. Paquete x6 unidades.</p>
-                            <div class="precios">
-                                
-                                <div class="caja-precio mayor">
-                                    <span>Por Mayor (Pack x6)</span>
-                                    <strong>S/ 32.00</strong>
-                                </div>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Sprite 1.5L (Pack x6)', 32.00)">+ Pack Mayor</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 16 -->
-                    <article class="tarjeta" data-categoria="gaseosas" data-nombre="sprite 1.5 litros gaseosa limon" data-menor="6.00" data-mayor="32.00">
-                        <span class="insignia gaseosa">Gaseosa</span>
-                        <img src="imagenes/sprite.svg" alt="Sprite 1.5 Litros">
-                        <div class="texto-tarjeta">
-                            <h3>Sprite 1.5L</h3>
-                            <p class="detalle">Sabor lima-limón refrescante. Paquete x6 unidades.</p>
-                            <div class="precios">
-                                
-                                <div class="caja-precio mayor">
-                                    <span>Por Mayor (Pack x6)</span>
-                                    <strong>S/ 32.00</strong>
-                                </div>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <button class="btn-mayor" onclick="agregarAlCarrito('Sprite 1.5L (Pack x6)', 32.00)">+ Pack Mayor</button>
-                            </div>
-                        </div>
-                    </article>
-
                 </div>
 
                 <div id="sin-resultados" class="mensaje-vacio" style="display: none;">
@@ -404,23 +193,73 @@
             </div>
         </section>
 
-        <section class="seccion fondo-suave" id="mayorista">
+        <section class="seccion fondo-suave" id="multimedia">
             <div class="contenedor">
-                <p class="etiqueta">BENEFICIOS PARA NEGOCIOS</p>
-                <h2>¿Tienes bodega, restaurante o evento?</h2>
-                <p>Obten despacho gratuito en todo el distrito y precios especiales por volumen.</p>
+                <p class="etiqueta">IMAGEN Y VIDEO DE OPERACIÓN</p>
+                <h2>Nuestro almacén y reparto diario</h2>
+                <div class="rejilla-multimedia">
+                    <div class="caja-media">
+                        <img src="imagenes/almacen-bramier.svg" alt="Almacén de cajas y packs de Bramier" class="imagen-seccion">
+                        <p>Control de stock por cajas y carga lista para despacho.</p>
+                    </div>
+                    <div class="caja-media">
+                        <video controls poster="imagenes/almacen-bramier.svg" class="video-seccion">
+                            <source src="videos/reparto-bramier.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                        <p>Revisa cómo preparamos y despachamos los pedidos mayoristas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" id="registro-mayorista">
+            <div class="contenedor">
+                <p class="etiqueta">AFILIACIÓN COMERCIAL</p>
+                <h2>Regístrate para ser mayorista de Bramier</h2>
+                <form class="formulario-cotizacion" onsubmit="enviarFormulario(event)">
+                    <div class="campo">
+                        <label for="nombre-negocio">Nombre de tu negocio o contacto</label>
+                        <input type="text" id="nombre-negocio" name="nombre-negocio" placeholder="Ej. Bodega Don Pepe" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="tipo-negocio">Tipo de negocio</label>
+                        <select id="tipo-negocio" name="tipo-negocio">
+                            <option value="bodega">Bodega o minimarket</option>
+                            <option value="licoreria">Licorería</option>
+                            <option value="restaurante">Restaurante o bar</option>
+                            <option value="distribuidor">Subdistribuidor o evento</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <span class="etiqueta-grupo">Comprobante para tus compras</span>
+                        <div class="opciones-en-linea">
+                            <label><input type="radio" name="comprobante" value="factura" checked> Factura (RUC)</label>
+                            <label><input type="radio" name="comprobante" value="boleta"> Boleta (DNI)</label>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <span class="etiqueta-grupo">Beneficios de cliente mayorista</span>
+                        <div class="opciones-en-linea">
+                            <label><input type="checkbox" name="beneficios" value="despacho" checked> Despacho gratuito en ruta</label>
+                            <label><input type="checkbox" name="beneficios" value="lista-precios" checked> Catálogo semanal con descuentos</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="boton-enviar">Registrarme como Mayorista</button>
+                    <p id="mensaje-formulario" class="mensaje-formulario"></p>
+                </form>
             </div>
         </section>
     </main>
 
-
-
-
-    <!-- Panel Carrito -->
     <aside id="panel-carrito" class="panel-carrito" aria-label="Resumen de pedido">
         <div class="cabecera-carrito">
             <h3>Carrito</h3>
-            <button onclick="alternarCarrito()" class="cerrar-carrito">✕</button>
+            <button type="button" onclick="alternarCarrito()" class="cerrar-carrito">✕</button>
         </div>
         <ul id="lista-carrito" class="lista-carrito">
             <li class="vacio">Aún no agregas bebidas a tu pedido.</li>
@@ -430,27 +269,22 @@
                 <span>Total estimado:</span>
                 <strong id="total-carrito">S/ 0.00</strong>
             </div>
-            <button class="boton-confirmar" onclick="enviarPedido()">Confirmar Pedido</button>
+            <button type="button" class="boton-confirmar" onclick="enviarPedido()">Confirmar Pedido</button>
         </div>
     </aside>
-
-
-    <!-------Pie de pagina ------->
-
 
     <footer class="pie" id="contacto">
         <div class="contenedor pie-contenido">
             <div>
                 <h2>Distribuidora Bramier</h2>
-                <p>Pedidos por mayor y menor al instante. Atención de lunes a sabado.</p>
+                <p>Pedidos por mayor al instante. Atención de lunes a sábado.</p>
                 <a href="mailto:pedidos@bramier.pe">pedidos@bramier.pe</a>
             </div>
             <div>
-                <p>Síguenos en redes</p>
-                <nav aria-label="Redes sociales" class="redes">
-                    <a href="#inicio">Facebook</a>
-                    <a href="#inicio">Instagram</a>
-                    <a href="#inicio">WhatsApp</a>
+                <p>Enlaces y legales</p>
+                <nav aria-label="Enlaces legales y redes" class="redes">
+                    <a href="docs/ley-proteccion-datos-personales.pdf" target="_blank" rel="noopener noreferrer">de Protección de Datos</a>
+                    <a href="mayoristas.html" target="_self">Condiciones Mayoristas</a>
                 </nav>
             </div>
         </div>
@@ -459,43 +293,49 @@
         </div>
     </footer>
 
-    <!------- carrito y busqueda ------->
-
     <script>
         let carrito = [];
 
-        function filtrarPorMenu(categoria) {
-            document.getElementById('filtro-categoria').value = categoria;
-            filtrarProductos();
-            document.querySelector('.desplegable').removeAttribute('open');
+        function alternarMenu() {
+            const nav = document.getElementById('navegacion');
+            const boton = document.getElementById('btn-menu');
+            const abierto = nav.classList.toggle('menu-abierto');
+            boton.setAttribute('aria-expanded', abierto ? 'true' : 'false');
         }
 
-    function filtrarProductos() {
-        const texto = document.getElementById('buscador').value.toLowerCase().trim();
-        const categoria = document.getElementById('filtro-categoria').value;
-        const contenedor = document.getElementById('contenedor-productos');
-        const tarjetas = Array.from(contenedor.querySelectorAll('.tarjeta'));
-
-        let visibles = [];
-
-        tarjetas.forEach(tarjeta => {
-        const nombre = tarjeta.getAttribute('data-nombre');
-        const catTarjeta = tarjeta.getAttribute('data-categoria');
-        
-        const coincideTexto = nombre.includes(texto);
-        const coincideCategoria = (categoria === 'todos') || (catTarjeta === categoria);
-
-        if (coincideTexto && coincideCategoria) {
-            tarjeta.style.display = 'flex';
-            visibles.push(tarjeta);
-        } else {
-            tarjeta.style.display = 'none';
+        function cerrarMenuMovil() {
+            const nav = document.getElementById('navegacion');
+            const boton = document.getElementById('btn-menu');
+            nav.classList.remove('menu-abierto');
+            boton.setAttribute('aria-expanded', 'false');
         }
-        });
 
-        document.getElementById('texto-resultados').textContent = `Mostrando ${visibles.length} productos`;
-        document.getElementById('sin-resultados').style.display = visibles.length === 0 ? 'block' : 'none';
-    }
+        function filtrarProductos() {
+            const texto = document.getElementById('buscador').value.toLowerCase().trim();
+            const categoria = document.getElementById('filtro-categoria').value;
+            const contenedor = document.getElementById('contenedor-productos');
+            const tarjetas = Array.from(contenedor.querySelectorAll('.tarjeta'));
+
+            let visibles = [];
+
+            tarjetas.forEach(tarjeta => {
+                const nombre = tarjeta.getAttribute('data-nombre');
+                const catTarjeta = tarjeta.getAttribute('data-categoria');
+                const coincideTexto = nombre.includes(texto);
+                const coincideCategoria = (categoria === 'todos') || (catTarjeta === categoria);
+
+                if (coincideTexto && coincideCategoria) {
+                    tarjeta.style.display = 'flex';
+                    visibles.push(tarjeta);
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+
+            document.getElementById('texto-resultados').textContent = `Mostrando ${visibles.length} productos`;
+            document.getElementById('sin-resultados').style.display = visibles.length === 0 ? 'block' : 'none';
+        }
+
         function alternarCarrito() {
             document.getElementById('panel-carrito').classList.toggle('abierto');
         }
@@ -533,7 +373,7 @@
                             <strong>${item.nombre}</strong>
                             <span>S/ ${item.precio.toFixed(2)}</span>
                         </div>
-                        <button onclick="eliminarDelCarrito(${idx})" title="Quitar">✕</button>
+                        <button type="button" onclick="eliminarDelCarrito(${idx})" title="Quitar">✕</button>
                     </li>
                 `;
             }).join('');
@@ -550,6 +390,14 @@
             carrito = [];
             actualizarCarrito();
             alternarCarrito();
+        }
+
+        function enviarFormulario(evento) {
+            evento.preventDefault();
+            const negocio = document.getElementById('nombre-negocio').value;
+            const tipo = document.getElementById('tipo-negocio').value;
+            const comprobante = document.querySelector('input[name="comprobante"]:checked').value;
+            document.getElementById('mensaje-formulario').textContent = `¡Registro completado! Bienvenido ${negocio} (${tipo} - ${comprobante}) como mayorista de Bramier.`;
         }
     </script>
 </body>
